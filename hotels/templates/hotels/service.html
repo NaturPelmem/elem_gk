@@ -1,0 +1,71 @@
+{% extends "hotels/base.html" %}
+{% block content %}
+    <!-- Услуги -->
+    <section class="service indent-1">
+        <div class="container-md">
+            <h1 class="title h1 indent-2">Услуги</h1>
+            <ul class="room__category indent-2">
+                {% for h in hotel %}
+                    <li>
+                        <input class="radio elem radio_option" type="radio" id="{{ h.slug }}" name="r_hotels"
+                               value="r_elem"
+                               data-filter="{{ h.slug }}">
+                        <label for="{{ h.slug }}" class="gray h2">{{ h.title }}</label>
+                    </li>
+                {% endfor %}
+            </ul>
+            <ul class="room__ul indent-1">
+                {% for h in hotel %}
+                    {% for s in services %}
+                        {% if h.title == s.hotel.title %}
+                            <li class="hotelys {{ h.slug }}">
+                                <input type="radio" id="{{ s.slug }}" class="check_option r_radio"
+                                       name="{{ h.slug }}"
+                                       value="single" data-filter="{{ s.slug }}">
+                                <label for="{{ s.slug }}" class="gray h2">{{ s.services_name }}</label>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+            <div class="room__main">
+                <!-- Slider main container -->
+                <div class="swiper room__img">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                        <!-- Slides -->
+                        {% for h in hotel %}
+                            {% for s in services %}
+                                {% if h.title == s.hotel.title %}
+                                    <div class="swiper-slide img__slider hot {{ s.slug }}">
+                                        <img src="{{ s.picture.url }}" alt="">
+                                    </div>
+{#                                    <div class="swiper-slide img__slider hot {{ s.slug }}">#}
+{#                                        <img src="{{ s.image.url }}" alt="">#}
+{#                                    </div>#}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <!-- If we need scrollbar -->
+                    <div class="swiper-scrollbar"></div>
+                </div>
+                <div class="room__text">
+                    <div>
+                        {% for h in hotel %}
+                            {% for s in services %}
+                                {% if h.title == s.hotel.title %}
+                                    <p class="white h2 indent-4 hotelys hot {{ s.slug }}">{{ s.content }}</p>
+                                    <p class="white h2 indent-4 hotelys hot {{ s.slug }}">{{ s.sub_content }}</p>
+                                    <p class="white h2 indent-1 hotelys hot {{ s.slug }}">{{ s.description }}{{ s.stock }}</p>
+                                    <p class="white h1 indent-4 hotelys hot {{ s.slug }}">{{ s.price }}</p>
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    {#                    <a href="" class="white h3">Забронировать</a>#}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

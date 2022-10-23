@@ -1,0 +1,82 @@
+{% extends "hotels/base.html" %}
+{% block content %}
+    <!-- Номера -->
+    <section class="room indent-1">
+        <div class="container-md">
+            <h1 class="title h1 indent-2">Номера</h1>
+            <ul class="room__category indent-2">
+                {% for h in hotel %}
+                    <li>
+                        <input class="radio elem radio_option" type="radio" id="{{ h.slug }}" name="r_hotels"
+                               value="r_elem"
+                               data-filter="{{ h.slug }}">
+                        <label for="{{ h.slug }}" class="gray h2">{{ h.title }}</label>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="room__box">
+                <ul class="room__ul indent-1">
+                    {% for h in hotel %}
+                        {% for r in room %}
+                            {% if h.title == r.hotel.title %}
+                                <li class="hotelys {{ h.slug }}">
+                                    <input type="radio" id="{{ r.slug }}" class="check_option r_radio"
+                                           name="{{ h.slug }}"
+                                           value="single" data-filter="{{ r.slug }}">
+                                    <label for="{{ r.slug }}" class="gray h2">{{ r.room_name }}</label>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+                <div class="noname">
+                    {% for h in hotel %}
+                        {% for r in room %}
+                            {% if h.title == r.hotel.title %}
+                                <p class="white h2 indent-4 hotelys hot {{ r.slug }}">{{ r.title }} кв.м</p>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+                <div class="room__main ">
+                    <!-- Slider main container -->
+                    <div class="swiper room__img ">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                        {% for h in hotel %}
+                        {% for r in room %}
+                            {% if h.title == r.hotel.title %}
+                                <div class="swiper-slide img__slider hot {{ r.slug }}">
+                                    <img src="{{ r.picture.url }}" alt="">
+                                </div>
+                                <div class="swiper-slide img__slider hot {{ r.slug }}">
+                                    <img src="{{ r.img.url }}" alt="">
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                        </div>
+                        <!-- If we need scrollbar -->
+                        <div class="swiper-scrollbar"></div>
+                    </div>
+                    <div class="room__text">
+                        <div>
+                            {% for h in hotel %}
+                                {% for r in room %}
+                                    {% if h.title == r.hotel.title %}
+                                        <p class="white h2 indent-4 hotelys hot {{ r.slug }}">{{ r.content }}</p>
+                                        <p class="white h2 indent-4 hotelys hot {{ r.slug }}">{{ r.sub_content }}</p>
+                                        <p class="white h2 indent-1 hotelys hot {{ r.slug }}">{{ r.description }}{{ r.stock }}</p>
+                                        <p class="white h1 indent-4 hotelys hot {{ r.slug }}">{{ r.price }}</p>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endfor %}
+                        </div>
+                        <a href="" class="white h3">Забронировать</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

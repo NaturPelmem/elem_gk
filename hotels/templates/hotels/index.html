@@ -1,0 +1,96 @@
+{% extends "hotels/base.html" %}
+{% block content %}
+        <section class="hotels indent-1">
+            <div class="container-md">
+                <h1 class="title h1 indent-2">Гостиницы</h1>
+                <div class="hotels__main indent-2">
+                    <ul class="hotels--trio">
+                        {% for h in hotels %}
+                    <li class="indent-1">
+                        <input class="hotel radio elem radio_option" type="radio" id="{{ h.slug }}" name="r_hotels" value="r_elem" data-filter="{{ h.slug }}">
+                        <label for="{{ h.slug }}" class="gray h2">{{ h.title }}</label>
+                    </li>
+                    {% endfor %}
+                    </ul>
+                    <div class="hotels__img">
+                        {% for h in hotels %}
+                            <div class="img elemys {{ h.slug }}" style="background-image: url({{ h.picture.url }});">
+                                <a href="{{ h.slug }}" class="more glass h3 white">Подробнее</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="map">
+                    {% for h in hotels %}
+                    <div class="map__info hotelys {{ h.slug }}">
+                        <h2 class="white h2 indent-4">Адрес</h2>
+                        <p class="white h3 indent-3">{{ h.address }}</p>
+                        <h2 class="white h2 indent-4">Телефон</h2>
+                        <p class="white h3 indent-3">{{ h.telephone }}</p>
+                        <h2 class="white h2 indent-4">Эл.почта</h2>
+                        <p class="white h3 indent-3">{{ h.email }}</p>
+                    </div>
+                    {% endfor %}
+                    <div class="hotel__map">
+                        <div class="map__div hotelys elem" id="e__div" style="position:relative;overflow:hidden;"><a
+                                href="https://yandex.ru/maps/org/elem/1343214800/?utm_medium=mapframe&utm_source=maps"
+                                style="color:#eee;font-size:12px;position:absolute;top:0px;">Элем</a><a
+                                href="https://yandex.ru/maps/20720/verhnyaya-pyshma/category/hotel/184106414/?utm_medium=mapframe&utm_source=maps"
+                                style="color:#eee;font-size:12px;position:absolute;top:14px;">Гостиница в Верхней
+                            Пышме</a>
+                            <iframe class="map__main" src="https://yandex.ru/map-widget/v1/-/CCUZyFx3kA"
+                                    allowfullscreen="true" style="position:relative;"></iframe>
+                        </div>
+                        <div class="map__div hotelys selen" id="s__div"
+                             style="position:relative;overflow:hidden;"><a
+                                href="https://yandex.ru/maps/org/selen/1223251474/?utm_medium=mapframe&utm_source=maps"
+                                style="color:#eee;font-size:12px;position:absolute;top:0px;">Селен</a><a
+                                href="https://yandex.ru/maps/11162/sverdlovsk-oblast/category/resort/184106404/?utm_medium=mapframe&utm_source=maps"
+                                style="color:#eee;font-size:12px;position:absolute;top:14px;">Санаторий в Свердловской
+                            области</a>
+                            <iframe class="map__main" src="https://yandex.ru/map-widget/v1/-/CCUZRAbbWC" width="560"
+                                    height="400"
+                                    frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+                        </div>
+                        <div class="map__div hotelys metallurg" id="m__div"
+                             style="position:relative;overflow:hidden;"><a
+                                href="https://yandex.ru/maps/20720/verhnyaya-pyshma/?utm_medium=mapframe&utm_source=maps"
+                                style="color:#eee;font-size:12px;position:absolute;top:0px;">Верхняя Пышма</a><a
+                                href="https://yandex.ru/maps/20720/verhnyaya-pyshma/house/ulitsa_ordzhonikidze_22/YkkYcwBjT0wBQFtsfXV2c3tibA==/?ll=60.573906%2C56.972472&utm_medium=mapframe&utm_source=maps&z=18.67"
+                                style="color:#eee;font-size:12px;position:absolute;top:14px;">Улица Орджоникидзе,
+                            22 </a>
+                            <iframe class="map__main" src="https://yandex.ru/map-widget/v1/-/CCUZRAuN3D" width="560"
+                                    height="400"
+                                    frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contacts">
+            <div class="container-md indent-1">
+                <h1 class="title h1 indent-2">Контакты</h1>
+                <div class="contacts__div">
+                    <div>
+                        <p class="white h3 indent-2">ООО «Гостиничный комплекс»</p>
+                        <p class="white h3 indent-4">Адреса: Юридический, Фактический, Почтовый:</p>
+                        <p class="white h3 indent-4">624091, Свердловская обл., г. Верхняя Пышма, ул. Красноармейская,
+                            22</p>
+                        <p class="white h3 indent-2">Тел.: +7(34368)47111</p>
+                        <p class="white h3 indent-4">Платежные реквезиты:</p>
+                        <p class="white h3 indent-4">р/сч 40702810900000001739 Корр.счет: 30101810500000000768</p>
+                        <p class="white h3 indent-2">ООО КБ «Кольцо Урала»</p>
+                        <p class="white h3 indent-2">ОГРН 1086606001932 ИНН: 6606028502 КПП: 668601001</p>
+                        <p class="white h3 indent-4">Коды: ОКПО: 88160390 ОКВЭД: 55.30; 55.40 ОКТМО: 65732000</p>
+                    </div>
+                    {% for c in contacts %}
+                        <div class="director"
+                             style="background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0) 100%), url({{ c.picture.url }});">
+                            <p class="white h3 director__p">Действующий директор<br> на основании устава</p>
+                            <p class="white h3 director__p">{{ c.full_name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+{% endblock %}

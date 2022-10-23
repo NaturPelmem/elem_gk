@@ -1,0 +1,40 @@
+{% extends "hotels/base.html" %}
+{% block content %}
+    <!-- Отзывы -->
+    <section class="room indent-1">
+        <div class="container-md">
+            <h1 class="title h1 indent-2">Отзывы</h1>
+            <div class="flex__center">
+                <div style="width:760px;height:120rem;overflow:hidden;position:relative;" class="hotelys elem">
+                    <iframe style="width:100%;height:100%;border:0.1rem solid #e6e6e6;border-radius:0.8rem;box-sizing:border-box;"
+                            src="https://yandex.ru/maps-reviews-widget/1343214800?comments"></iframe>
+                    <a href="https://yandex.ru/maps/org/elem/1343214800/" target="_blank"
+                       style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:1rem;font-family:YS Text,sans-serif;padding:0 2rem;position:absolute;bottom:0.8rem;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:1.4rem;white-space:nowrap;padding:0 1.6rem;box-sizing:border-box;">Элем
+                        на карте Верхней Пышмы — Яндекс Карты</a></div>
+                <div style="width:760px;height:120rem;overflow:hidden;position:relative;display: none"
+                     class=" hotelys selen">
+                    <iframe style="width:100%;height:100%;border:0.1rem solid #e6e6e6;border-radius:0.8rem;box-sizing:border-box"
+                            src="https://yandex.ru/maps-reviews-widget/1223251474?comments"></iframe>
+                    <a href="https://yandex.ru/maps/org/selen/1223251474/" target="_blank"
+                       style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:1rem;font-family:YS Text,sans-serif;padding:0 2rem;position:absolute;bottom:0.8rem;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:1.4rem;white-space:nowrap;padding:0 1.6rem;box-sizing:border-box">Селен
+                        на карте Свердловской области — Яндекс Карты</a></div>
+                <div style="width:760px;height:120rem;overflow:hidden;position:relative;display: none"
+                     class="hotelys metallurg">
+                    <iframe style="width:100%;height:100%;border:0.1rem solid #e6e6e6;border-radius:0.8rem;box-sizing:border-box"
+                            src="https://yandex.ru/maps-reviews-widget/1089880191?comments"></iframe>
+                    <a href="https://yandex.ru/maps/org/metallurg/1089880191/" target="_blank"
+                       style="box-sizing:border-box;text-decoration:none;color:#b3b3b3;font-size:1rem;font-family:YS Text,sans-serif;padding:0 2rem;position:absolute;bottom:0.8rem;width:100%;text-align:center;left:0;overflow:hidden;text-overflow:ellipsis;display:block;max-height:1.4rem;white-space:nowrap;padding:0 1.6rem;box-sizing:border-box">Металлург
+                        на карте Верхней Пышмы — Яндекс Карты</a></div>
+                <ul class="hotels--trio ml-6">
+                    {% for h in hotel %}
+                        <li class="indent-1">
+                            <input class="hotel radio elem radio_option" type="radio" id="{{ h.slug }}" name="r_hotels"
+                                   value="r_elem" data-filter="{{ h.slug }}">
+                            <label for="{{ h.slug }}" class="gray h2">{{ h.title }}</label>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endblock %}

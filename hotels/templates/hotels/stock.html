@@ -1,0 +1,22 @@
+{% extends "hotels/base.html" %}
+{% block content %}
+        <section class="hotels indent-1">
+            <div class="container-md">
+                <h1 class="title h1 indent-2">Акции</h1>
+                {% for s in stocks %}
+                <div class="wedding indent-2">
+                    <div class="wedding__img">
+                        <img src="{{ s.picture.url }}" alt="wedding">
+                    </div>
+                    <div class="about__wedding">
+                        <p class="white h2 indent-4">{{ s.title }}</p>
+                        <p class="white h3 indent-4">{{ s.content }}</p>
+                        <p class="white h3 indent-4">{{ s.sub_content }}</p>
+                        <p class="white h3 indent-4">{{ s.additionally }}</p>
+                        <p class="white h3 indent-4">{{ s.tel }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+{% endblock %}

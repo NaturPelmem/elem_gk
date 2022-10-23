@@ -1,0 +1,40 @@
+{% extends "hotels/base.html" %}
+{% block content %}
+    <section class="about indent-1">
+        <div class="container-md">
+            {% for h in hotels %}
+                        {% if h.slug == 'selen' %}
+            <h1 class="title h1 indent-2">Гостиница {{ h.title }}</h1>
+            <div class="about__main indent-2">
+                <div class="about__text">
+                            <p class="white h3 indent-3">{{ h.address }}</p>
+                            <p class="white h3 indent-3">{{ h.content }}</p>
+                            <p class="white h3">{{ h.description }}</p>
+                            </div>
+                            <div class="about__img">
+                                <img src="{{ h.picture.url }}" alt="">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+            </div>
+            <div class="about__brief">
+                <div class="brief__align">
+                    <img class="brief__img" src="/static/hotels/images/Group 1428.svg" alt="">
+                    <p class="white h3">Высокоскоростной Wi-Fi интернет</p>
+                </div>
+                <div class="brief__align">
+                    <img class="brief__img" src="/static/hotels/images/Group 1429.svg" alt="">
+                    <p class="white h3">Обслуживание в номерах</p>
+                </div>
+                <div class="brief__align">
+                    <img class="brief__img" src="/static/hotels/images/Group 1430.svg" alt="">
+                    <p class="white h3">Телевизор с кабельными и спутниковыми каналами</p>
+                </div>
+                <div class="brief__align">
+                    <img class="brief__img" src="/static/hotels/images/Group 1431.svg" alt="">
+                    <p class="white h3">Удобная автопарковка</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

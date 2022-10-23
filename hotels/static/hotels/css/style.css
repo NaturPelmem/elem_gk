@@ -1,0 +1,473 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Open+Sans&display=swap');
+*{padding: 0;margin: 0;border: 0;}
+*,*:before,*:after{-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+  height:100%;width:100%;
+  font-size:100%;line-height:1;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: inherit;}
+a{color:inherit;}
+
+ul,
+ol {
+	list-style: none;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+a {
+	text-decoration: none !important;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+p {
+	margin-bottom: 0 !important;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: calc(100vw / 1920 * 10);
+	/*@media (min-width: 1024px) {font-size:calc(100vw / 768 * 10);}*/
+	/*@media (min-width: 767px) {font-size:calc(100vw/500 * 10);}*/
+	/*@media (min-width: 500px) {font-size:calc(100vw/360 *10);}*/
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+main {
+	flex: 1;
+}
+
+
+
+/* Цвета сайта */
+.bg {
+	background-color: #1F2938;
+}
+
+.btn {
+	background-color: #689775;
+}
+
+.white-bg {
+	background-color: #F5F5F5;
+}
+
+.white {
+	color: #F5F5F5;
+}
+
+.title {
+	color: #FF8049;
+	text-transform: uppercase;
+}
+
+.gray {
+	color: #BEBEBE;
+}
+
+.glass {
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(25px);
+}
+
+/* Размер текста сайта */
+.h1 {
+	font-size: 6rem !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.h2 {
+	font-size: 3rem !important;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.h3 {
+	font-size: 2rem !important;
+    font-family: 'Inter', sans-serif;
+}
+
+.h4 {
+	font-size: 1.6rem !important;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.indent-1 {
+	margin-bottom: 6rem !important;
+}
+
+.indent-2 {
+	margin-bottom: 3rem !important;
+}
+
+.indent-3 {
+	margin-bottom: 2rem !important;
+}
+
+.indent-4 {
+	margin-bottom: 1rem !important;
+}
+
+/* Шапка */
+.logo {
+	width: 20rem;
+	height: auto;
+}
+
+.nav {
+	justify-content: space-between;
+	padding: 3rem 0;
+	align-items: center;
+	flex-wrap: nowrap !important;
+	border-bottom: 0.2rem solid #F5F5F5;
+}
+
+.nav__ul {
+	display: flex;
+	align-items: center;
+}
+
+.nav__ul li:not(:last-child) {
+	padding-right: 6rem;
+}
+
+a:hover {
+	color: #F5F5F5 !important;
+}
+
+/* Подвал */
+.footer__main {
+	display: flex;
+	align-items: center;
+	padding: 3rem 0;
+	border-top: #F5F5F5 0.2rem solid;
+}
+
+.footer__p {
+	margin: 0 auto;
+}
+
+.hidden {
+	visibility: hidden;
+}
+
+/* Основной контент */
+.hotels__main {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-transform: uppercase;
+}
+
+.hotels--trio label {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 3rem 0;
+	border-radius: 10rem;
+	cursor: pointer;
+	height: 6rem;
+	width: 27rem;
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(25px);
+}
+
+input[type="radio"].hotel:checked+label {
+	color: #F5F5F5;
+	background: rgba(255, 255, 255, 0.4);
+}
+
+.hotels__img {
+	position: relative;
+	flex: 0 1 74.7%;
+	min-height: 65rem;
+	margin-left: 6rem;
+}
+
+.img:not(:first-child) {
+	display: none;
+}
+
+.img {
+	/*position: absolute;*/
+	/*top: 0;*/
+	/*left: 0;*/
+	border-radius: 1.5rem;
+	display: flex;
+	align-items: end;
+	flex-direction: row-reverse;
+	height: 65rem;
+	width: 97.5rem;
+	border-radius: 1.5rem;
+	background-size: cover;
+	transition: 1s;
+}
+
+.more {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 15rem;
+	width: 15rem;
+	border-radius: 1.5rem;
+	transition: 1s;
+	margin-bottom: 0 !important;
+}
+
+.more:hover {
+	height: 100%;
+	width: 100%;
+	color: #F5F5F5;
+	background-color: rgba(0, 0, 0, 0.4);
+	font-size: 4rem !important;
+}
+
+.map__info:not(:first-child) {
+	display: none;
+}
+
+.map {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 1.5rem;
+	border: #F5F5F5 0.2rem solid;
+	padding: 3rem;
+}
+
+.hotel__map {
+	width: 100%;
+}
+
+.map__div:not(:first-child) {
+	display: none;
+}
+
+.map__div {
+	border-radius: 1.5rem;
+	position: relative;
+	flex: 0 0 63.2%;
+	min-height: 57rem;
+}
+
+.map__main {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	border-radius: 1.5rem;
+}
+
+/* Контакты */
+.contacts__div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.director {
+	display: flex;
+	align-items: center;
+	text-align: center;
+	flex-direction: column-reverse;
+	flex: 0 0 35%;
+	min-height: 65rem;
+	border-radius: 1.5rem;
+	padding: 2rem;
+	background-size: cover;
+}
+
+/* Об отеле */
+.about__main {
+	display: flex;
+	justify-content: space-between;
+}
+
+.about__img {
+	position: relative;
+	flex: 0 0 63.2%;
+	min-height: 57rem;
+}
+
+.about__img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 1.5rem;
+}
+
+.about__text {
+	width: 45rem;
+}
+
+.about__brief {
+	display: grid;
+	grid-template-columns: repeat(2,1fr) 1.3fr 1fr;
+	border: #F5F5F5 0.2rem solid;
+	border-radius: 1.5rem;
+	padding: 3rem;
+}
+
+.brief__align {
+	display: flex;
+	align-items: center;
+}
+
+.brief__align:not(:last-child) {
+	margin-right: 3rem;
+}
+
+.brief__img {
+	width: 4rem;
+	margin-right: 1.5rem;
+}
+
+/* Номера */
+.room__category {
+	display: flex;
+	justify-content: center;
+	text-transform: uppercase;
+}
+
+.room__category li {
+	margin: 0 4.5rem;
+}
+
+.room__box {
+	border: #F5F5F5 0.2rem solid;
+	border-radius: 1.5rem;
+	padding: 3rem;
+}
+
+.noname p:not(:first-child) {
+	display: none;
+}
+
+.room__ul li:not(:nth-child(-n+2)) {
+	display: none;
+}
+
+.room__text p:not(:nth-child(-n+4)) {
+	display: none;
+}
+
+.room__ul {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 3rem 6rem;
+	text-transform: uppercase;
+}
+
+li label {
+	cursor: pointer;
+}
+
+input[type="radio"]:checked+label {
+	color: #F5F5F5;
+}
+
+.room__main{
+	display: flex;
+}
+
+.room__img {
+	position: relative;
+	flex: 0 0 63.2%;
+}
+
+.img__slider img {
+	height: 100%;
+	width: 100%;
+	border-radius: 1.5rem;
+	background-size: cover;
+}
+
+.swiper {
+	margin: 0 !important;
+}
+
+.swiper-scrollbar-drag {
+	cursor: pointer;
+	background-color: #F5F5F5 !important;
+}
+
+.room__text {
+	margin-left: 3rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.room__text a {
+	text-align: center;
+	align-items: center;
+	width: 60%;
+	padding: 1.5rem 3rem;
+	margin: 0 auto;
+	background-color: #689775;
+	border-radius: 50rem;
+}
+
+.flex__center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*Отзывы*/
+.flex__center .hotels--trio{
+	margin-left: 6rem !important;
+}
+
+.wedding {
+	display: flex;
+}
+
+.wedding__img {
+	position: relative;
+	flex: 0 1 60%;
+	min-height: 57rem;
+	margin-right: 3rem;
+}
+
+.wedding__img img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: 80%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 1.5rem;
+}
+
+.about__wedding {
+	flex: 35%;
+}
+
+.swiper {
+	height: 55rem!important;
+}
