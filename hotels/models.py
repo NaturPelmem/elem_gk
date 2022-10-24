@@ -1,4 +1,3 @@
-from django.core.validators import RegexValidator
 from django.db import models
 
 
@@ -18,24 +17,6 @@ class Hotels(models.Model):
     class Meta:
         verbose_name = 'Отель'
         verbose_name_plural = 'Отели'
-
-
-# class Users(models.Model):
-#     email = models.CharField(max_length=50)
-#     phoneNumberRegex = RegexValidator(regex=r"^\+?1?\d{8,15}$")
-#     phoneNumber = models.CharField(validators=[phoneNumberRegex], max_length=16, unique=True)
-#     password = models.CharField(max_length=50)
-#     nickname = models.CharField(max_length=50)
-#     avatar = models.ImageField(upload_to="photos/%Y/%m/%d/")
-#     booking_service =
-#     booking_room =
-#
-#     def __str__(self):
-#         return self.email
-#
-#     class Meta:
-#         verbose_name = 'Пользователь'
-#         verbose_name_plural = 'Пользователи'
 
 
 class BookingRooms(models.Model):
@@ -104,8 +85,8 @@ class Services(models.Model):
     slug = models.SlugField(max_length=50, unique=True, db_index=True, verbose_name="URL")
     services_name = models.ForeignKey('ServicesNames', on_delete=models.PROTECT)
     price = models.CharField(max_length=50)
-    picture = models.ImageField(upload_to="photos/%Y/%m/%d/", default=1)
-    image = models.ImageField(upload_to="photos/%Y/%m/%d/", default=0, blank=True)
+    picture = models.ImageField(upload_to="photos/%Y/%m/%d/")
+    image = models.ImageField(upload_to="photos/%Y/%m/%d/", blank=True)
     title = models.CharField(max_length=50, db_index=True)
     content = models.CharField(max_length=250)
     sub_content = models.CharField(max_length=250, verbose_name='Описание 2', blank=True)
