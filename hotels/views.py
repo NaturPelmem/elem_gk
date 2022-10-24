@@ -14,7 +14,7 @@ def index(request):
     hotels = Hotels.objects.order_by("id")
     contacts = Contacts.objects.all()
     context = {
-        'hotels': hotels,
+        'hotel': hotels,
         'contacts': contacts,
         'menu': menu,
         'title': 'Гостиничный комплекс'

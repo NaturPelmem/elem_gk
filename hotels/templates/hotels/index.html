@@ -5,16 +5,16 @@
             <h1 class="title h1 indent-2">Гостиницы</h1>
             <div class="hotels__main indent-2">
                 <ul class="hotels--trio">
-                    {% for hotel in hotels %}
+                    {% for h in hotel %}
                         <li class="indent-1">
-                            <input class="hotel radio elem radio_option" type="radio" id="{{ hotel.slug }}" name="r_hotels"
-                                   value="r_elem" data-filter="{{ hotel.slug }}">
-                            <label for="{{ hotel.slug }}" class="gray h2">{{ hotel.title }}</label>
+                            <input class="hotel radio elem radio_option" type="radio" id="{{ h.slug }}" name="r_hotels"
+                                   value="r_elem" data-filter="{{ h.slug }}">
+                            <label for="{{ h.slug }}" class="gray h2">{{ h.title }}</label>
                         </li>
                     {% endfor %}
                 </ul>
                 <div class="hotels__img">
-                    {% for h in hotels %}
+                    {% for h in hotel %}
                         <div class="img elemys {{ h.slug }}" style="background-image: url({{ h.picture.url }});">
                             <a href="{{ h.slug }}" class="more glass h3 white">Подробнее</a>
                         </div>
@@ -22,7 +22,7 @@
                 </div>
             </div>
             <div class="map">
-                {% for h in hotels %}
+                {% for h in hotel %}
                     <div class="map__info hotelys {{ h.slug }}">
                         <h2 class="white h2 indent-4">Адрес</h2>
                         <p class="white h3 indent-3">{{ h.address }}</p>
